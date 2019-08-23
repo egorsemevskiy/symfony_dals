@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\ArticleController::homePage
+
+#hello:
+#    path: /hello/{name}
+#    controller: App\Controller\HelloController::index
