@@ -10,18 +10,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
      */
     public function homePage()
     {
-        return $this->render( 'default/index.html.twig', [
+        return $this->render( 'default/homepage.html.twig', [
             'name' => "Дефаулт",
             'greeting'=> "Привет"
         ]);
     }
 
     /**
-     * @Route("/news/{slug}")
+     * @Route("/news/{slug}", name="article_show")
      */
     public function show($slug)
     {

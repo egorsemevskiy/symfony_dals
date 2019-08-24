@@ -4,19 +4,16 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>{{ name }}</h1>
+                <h1>{{ greeting }} World</h1>
+                <p>Your name is {{ name }}</p>
             </div>
         </div>
+
+
         <div class="row">
             <div class="col">
-                <p>Your name is {{ greeting }} Worldc</p>
-            </div>
-            <div class="col">
-                <div class="like">
-                    <span class="like--number">5</span><span class="like--icon like--not-liked">  fav  </span>
-                </div>
+                <a href="{{ path('article_show', {slug : 'why-asteroind-taste-like-backon'}) }}">Link to the article</a>
             </div>
         </div>
     </div>
 {% endblock %}
-
