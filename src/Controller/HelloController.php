@@ -24,7 +24,7 @@ class HelloController extends AbstractController
 
         $logger->info("Saying $greeting to $name!");
 
-        return $this->render( 'default/index.html.twig', [
+        return $this->render( 'default/article.html.twig', [
             'name' => $name,
             'greeting'=> $greeting
             ]);

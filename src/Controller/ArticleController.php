@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,9 +26,20 @@ class ArticleController extends AbstractController
      */
     public function show($slug)
     {
-        return $this->render( 'default/index.html.twig', [
+        return $this->render( 'default/article.html.twig', [
             "name" => ucwords(str_replace('-',' ',$slug)),
-            'greeting'=> 'Title'
+            'greeting'=> 'Title',
+            'slug'=> $slug
         ]);
+    }
+
+    /**
+     * @Route("/news/{slug}/like", name="article_toggle_like", methods={"POST"})
+     */
+    public function toggleArticleLike($slug)
+    {
+        // TODO - like/unlike article with database and Ajax
+
+        return new JsonResponse(["like"=>rand(5, 100)]);
     }
 }

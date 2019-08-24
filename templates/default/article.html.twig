@@ -13,10 +13,16 @@
             </div>
             <div class="col">
                 <div class="like">
-                    <span class="like--number">5</span><span class="like--icon like--not-liked">  fav  </span>
+                    <span class="like--number">5</span><a href="{{ path('article_toggle_like',{slug: slug}) }}" class="like--icon like--not-liked">  fav  </a>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/article_show.js') }}"></script>
 {% endblock %}
 
