@@ -25,6 +25,9 @@ class ArticleController extends AbstractController
      */
     public function show($slug)
     {
-        return new Response(sprintf("title of the atricle: %s", $slug));
+        return $this->render( 'default/index.html.twig', [
+            "name" => ucwords(str_replace('-',' ',$slug)),
+            'greeting'=> 'Title'
+        ]);
     }
 }
