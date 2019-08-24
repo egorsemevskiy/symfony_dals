@@ -13,9 +13,14 @@
             </div>
             <div class="col">
                 <div class="like">
-                    <span class="like--number">5</span><a href="{{ path('article_toggle_like',{slug: slug}) }}" class="like--icon like--not-liked">  fav  </a>
+                    <span class="like--number">  5   </span>
+                    <a href="{{ path('article_toggle_like',{slug: slug}) }}" class="like--icon like--not-liked">fav</a>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            {{ articleContent|raw }}
         </div>
     </div>
 {% endblock %}

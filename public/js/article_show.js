@@ -5,6 +5,11 @@ $(document).ready(function(){
         var $link = $(e.currentTarget);
         $link.toggleClass("like--not-liked").toggleClass("like--liked");
 
-        $(".like--number").html("test");
+        $.ajax({
+            method: 'POST',
+            url: $link.attr('href')
+        }).done(function(data){
+            $(".like--number").html(data.likes);
+        });
     });
 });

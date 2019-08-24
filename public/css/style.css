@@ -9,7 +9,9 @@ h1 {
 .like--liked {
     color:red;
 }
-
+.like--liked:hover {
+    color:red;
+}
 .like--not-liked{
     color:#222222;
 }
