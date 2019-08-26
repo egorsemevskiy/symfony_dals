@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Article;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,10 +15,10 @@ class ArticleAdminController extends AbstractController
     /**
      * @Route("/admin/article/new")
      */
-    public function new()
+    public function new(EntityManagerInterface $em)
     {
         $article = new Article();
-        $articleTile = 'Why Im so smart and its hard to find job'
+        $articleTile = 'Why Im so smart and its hard to find job' . rand(1, 1000);
 
         $article->setTitle($articleTile)
             ->setSlug(str_replace(" ","-",strtolower($articleTile)))
@@ -32,7 +33,10 @@ EOF
             $article->setPublishedAt(new \DateTime(sprintf('-%d days', rand(1,100))));
         }
 
-        return new Response('space rooks');
+        $em->persist($article);
+        $em->flush();
+
+        return new Response(sprintf('New article have id: # %d slug %s',$article->getId(),$article->getSlug()));
     }
 
 }

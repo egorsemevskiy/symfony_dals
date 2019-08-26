@@ -1,26 +1,28 @@
 {# templates/default/index.html.twig #}
 {% extends 'base.html.twig' %}
+
+{%  block title %} {{ article.title }}{% endblock %}
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>{{ name }}</h1>
+                <h1>{{ article.title }}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <p>Your name is {{ greeting }} Worldc</p>
+                <p>Your name is hello Worldc</p>
             </div>
             <div class="col">
                 <div class="like">
                     <span class="like--number">  5   </span>
-                    <a href="{{ path('article_toggle_like',{slug: slug}) }}" class="like--icon like--not-liked">fav</a>
+                    <a href="{{ path('article_toggle_like',{slug: article.slug}) }}" class="like--icon like--not-liked">fav</a>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            {{ articleContent|raw }}
+            {{ article.content | cached_markdown}}
         </div>
     </div>
 {% endblock %}
